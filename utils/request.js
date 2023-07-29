@@ -1,3 +1,5 @@
+const app = getApp()
+
 export default function createRequest(options) {
   return new Promise((resolve) => {
     const token = wx.getStorageSync('token')
@@ -13,7 +15,7 @@ export default function createRequest(options) {
       }, 1000)
       return
     }
-    const baseUrl = 'http://127.0.0.1:3000'
+    const baseUrl = app.getConfig('baseUrl')
     const url = `${baseUrl}${options.url}`
     const header = {
       token
