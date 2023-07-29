@@ -1,4 +1,6 @@
 // pages/login/index.js
+import { loginRequest } from '../../api/index'
+
 Page({
 
   /**
@@ -41,21 +43,17 @@ Page({
     wx.showLoading({
       title: '登录中',
     })
-    wx.request({
-      url: 'http://127.0.0.1:3000/login',
-      data: postData,
-      method: 'POST',
-      success(res) {
-        wx.hideLoading()
-        let data = res.data
-        if (data.code === -1) {
+    loginRequest(postData).then(res => {
+      console.log(res)
+      wx.hideLoading()
+        if (res.code === -1) {
           wx.showToast({
-            title: data.msg,
+            title: res.msg,
             icon: 'none'
           })
           return
         }
-        wx.setStorageSync('token', data.data.cookie)
+        wx.setStorageSync('token', res.data.cookie)
         if (that.data.saveCount) {
           wx.setStorageSync('account', postData)
         } else {
@@ -70,7 +68,6 @@ Page({
             url: '/pages/index/index',
           })
         }, 1000)
-      }
     })
   },
   
