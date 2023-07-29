@@ -1,4 +1,2 @@
 /**app.wxss**/
-view {
-  box-sizing: border-box;
-}
+@import "/style/main.wxss";
