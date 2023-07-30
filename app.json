@@ -5,7 +5,8 @@
     "pages/login/index",
     "pages/score/index",
     "pages/course/index",
-    "pages/mine/index"
+    "pages/mine/index",
+    "pages/course-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -43,5 +44,6 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }
