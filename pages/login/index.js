@@ -64,7 +64,7 @@ Page({
           icon: 'none'
         })
         setTimeout(() => {
-          wx.redirectTo({
+          wx.switchTab({
             url: '/pages/index/index',
           })
         }, 1000)
